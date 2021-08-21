@@ -1,0 +1,5 @@
+loteria|3
+processo-0|0|24|2|1|5120
+processo-1|1|18|20|5|7168
+processo-2|2|16|76|4|3072
+processo-3|3|12|15|3|9216
