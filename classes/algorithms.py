@@ -2,7 +2,6 @@ import heapq
 from classes.process import Process
 from random import randint
 
-
 class Priority:
     def __init__(self, processes):
         self.PROCESSES = []
@@ -13,7 +12,7 @@ class Priority:
         heapq.heappush(self.PROCESSES, (100 - process.priority, process))
     
     def next(self):
-        return heapq.heappop(self.PROCESSES)
+        return heapq.heappop(self.PROCESSES)[1]
 
 class Cyclic:
     def __init__(self, processes):

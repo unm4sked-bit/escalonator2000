@@ -12,7 +12,7 @@ class Process:
         return Process((info[0],info[1], info[2], info[3], info[4], info[5]))
     
     def __str__(self):
-        return self.name
+        return f"{self.name}, {self.pid}, {self.priority}, {self.execTime}"
     
     def __repr__(self):
-        return self.name
+        return self.__str__()

@@ -1,5 +1,7 @@
 from classes.algorithms import Cyclic, Priority, Raffle
+from classes.process import Process
 from threading import Thread
+from time import sleep
 
 
 scheduleAlgorithms = {
@@ -9,12 +11,23 @@ scheduleAlgorithms = {
 }
 
 class Scheduler:
-    def __init__(self, algorithm, cputime, processes):
-        self.table = scheduleAlgorithms[algorithm](processes,)
+    def __init__(self, algorithm, processes, cputime):
+        self.table = (scheduleAlgorithms[algorithm])(processes)
         self.cputime = cputime
     
     def run(self):
-        pass
+
+        while len(self.table.PROCESSES) > 0:
+            process: Process = self.table.next()
+            time = min(self.cputime, process.execTime)
+            
+            print(f"Processo <{process}> executando por {time} ms", end="\n", flush=True)
+            sleep(time*10e-3)
+            
+            process.execTime -= time
+            if process.execTime:
+                self.table.insert(process)
+            
 
 
 
