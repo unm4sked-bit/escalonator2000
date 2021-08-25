@@ -32,7 +32,7 @@ class Raffle:
         self.PROCESSES.append(process)
     
     def next(self):
-        ticket = randint(0, sum(p.priority for p in self.PROCESSES))
+        ticket = randint(1, sum(p.priority for p in self.PROCESSES))
 
         current = 0
         for p in range(len(self.PROCESSES)):
