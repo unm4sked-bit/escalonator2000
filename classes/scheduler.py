@@ -3,16 +3,9 @@ from classes.process import Process
 from threading import Thread
 from time import sleep
 
-
-scheduleAlgorithms = {
-    'alternancia':  Cyclic,
-    'loteria':      Raffle,
-    'prioridade':   Priority
-}
-
 class Scheduler:
-    def __init__(self, algorithm, processes, cputime):
-        self.table = (scheduleAlgorithms[algorithm])(processes)
+    def __init__(self, processes, cputime, algorithm = Priority):
+        self.table = algorithm(processes)
         self.cputime = cputime
     
     def run(self):

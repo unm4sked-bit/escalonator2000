@@ -1,5 +1,6 @@
 from classes.process import Process
 from classes.scheduler import Scheduler
+from classes.algorithms import Raffle, Priority, Cyclic
 from pprint import pprint
 
 
@@ -20,10 +21,14 @@ def lerProcessos(path_arquivo):
 def demoPrioridade():
     
     # lista de processos que será iterada sobre
-    for alg in ["loteria", "alternancia", "prioridade"]:
+    for alg in [Cyclic, Priority, Raffle]:
         escalonador = lerProcessos("examples/loteria.txt")
-        print(alg.upper())
-        A = Scheduler(alg, escalonador['processos'], 8)
+        print("KEK")
+        A = Scheduler(
+            escalonador['processos'],
+            8,
+            Cyclic
+        )
         A.run()
 
 demoPrioridade()
