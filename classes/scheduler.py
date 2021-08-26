@@ -13,12 +13,12 @@ class Scheduler:
         while len(self.table.PROCESSES) > 0:
             process: Process = self.table.next()
             time = min(self.cputime, process.execTime)
-            
-            print(f"Processo <{process}> executando por {time} ms", end="\n", flush=True)
-            sleep(time*10e-3)
+
+            print(f"Processo <{process}> executando por {time:.2f} s", end="\n", flush=True)
+            sleep(time * 0.1)
             
             process.execTime -= time
-            if process.execTime:
+            if process.execTime > 2e-20:
                 self.table.insert(process)
             
 

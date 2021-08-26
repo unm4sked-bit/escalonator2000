@@ -4,9 +4,9 @@ from random import randint
 
 class Priority:
     def __init__(self, processes):
-        self.PROCESSES = []
-        for p in processes:
-            self.insert(p)
+        self.PROCESSES = [(100 - p.priority, p) for p in processes]
+        heapq.heapify(self.PROCESSES)
+
     
     def insert(self, process: Process):
         heapq.heappush(self.PROCESSES, (100 - process.priority, process))
