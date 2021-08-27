@@ -44,11 +44,11 @@ def demo():
         prioridade['time'],
         algSelector[prioridade['alg']]
     )
-    print("LOTERIA")
-    LOT.run()
+    # print("LOTERIA")
+    # LOT.run()
 
-    print("ALTERNANCIA")
-    ALT.run()
+    # print("ALTERNANCIA")
+    # ALT.run()
 
     print("PRIORIDADE")
     PRI.run()

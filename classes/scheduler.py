@@ -9,17 +9,34 @@ class Scheduler:
         self.cputime = cputime
     
     def run(self):
+        def inputListener():
+            while True:
+                input()
+                with open("newprocess.txt", "r") as new:
+                    try:
+                        for p in new.readlines():
+                            self.table.insert(Process.fromString(p))
+                    except Exception as e:
+                        print(e)
 
-        while len(self.table.PROCESSES) > 0:
-            process: Process = self.table.next()
-            time = min(self.cputime, process.execTime)
+        try:
+            listener = Thread(
+                target=inputListener,
+                args=()
+            )
+            listener.start()
+            while len(self.table.PROCESSES) > 0:
+                process: Process = self.table.next()
+                time = min(self.cputime, process.execTime)
 
-            print(f"Processo <{process}> executando por {time:.2f} s", end="\n", flush=True)
-            sleep(time * 0.1)
-            
-            process.execTime -= time
-            if process.execTime > 2e-20:
-                self.table.insert(process)
+                print(f"Processo <{process}> executando por {time:.2f} s", end="\n", flush=True)
+                sleep(time * 0.1)
+                
+                process.execTime -= time
+                if process.execTime > 2e-20:
+                    self.table.insert(process)
+        except KeyboardInterrupt:
+            return
             
 
 
