@@ -7,6 +7,7 @@ class Process:
         self.uid = int(processInfo[4])
         self.memory = int(processInfo[5])
     
+    @staticmethod
     def fromString(string):
         info = string.split("|")
         return Process((info[0],info[1], info[2], info[3], info[4], info[5]))
