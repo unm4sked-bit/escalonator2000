@@ -12,13 +12,18 @@ class Scheduler:
         def inputListener():
             while True:
                 input()
-                with open("newprocess.txt", "r") as new:
+                with open("newprocess.txt", "r+") as new:
+                    inputLines = new.readlines()
+
                     try:
-                        for p in new.readlines():
+                        for p in inputLines[1:]:
                             self.table.insert(Process.fromString(p))
                     except Exception as e:
                         print(e)
 
+                    new.seek(0)
+                    new.truncate()
+                    new.write(inputLines[0])
         try:
             listener = Thread(
                 target=inputListener,
