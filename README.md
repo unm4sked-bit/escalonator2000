@@ -26,9 +26,9 @@ As classes de algoritmos todas segue o padrão de métodos da tabela a seguir:
 
 | Método       | Utilidade                      |
 |----------------|-------------------------------|
-|`fromString`|Gera um processo em função de uma string onde os atributos são separados por `|`. O padrão é: `nomeProcesso|PID|tempoDeExecução|prioridade (ou bilhetes)|UID|qtdeMemoria`|
+|`fromString`|Gera um processo em função de uma string padrão.|
 |`insert`|Insere um processo na lista.|
-|`next`|Escolhe um processo e remove da lista..|
+|`next`|Escolhe um processo e remove da lista.|
 
 Além disso, elas tem apenas um atributo:
 | Atributo       | Valor                      |
@@ -44,7 +44,7 @@ Nessa implementação, usamos uma fila de prioridade (_priority queue_) para adi
 ### Raffle
 No algoritmo de loteria, somamos todas quantidades de bilhetes para termos um total, em seguida, sorteamos um valor entre 1 e esse total. Após isso, iteramos os processos da lista somando a quantidade de bilhetes de cada um, quando essa quantidade alcança ou ultrapassa o valor sorteado, o processo da iteração atual é escolhido.
 
-## Scheduler
+## Scheduler (classes/scheduler.py)
 
 Essa classe é responsável por aceitar entrada de novos processos, além de utilizar as classes anteriores para executar os processos.
 
