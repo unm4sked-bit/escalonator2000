@@ -1,1 +1,5 @@
 nomeProcesso|PID|tempoDeExecução|prioridade (ou bilhetes)|UID|qtdeMemoria
+processo-666|666|56|666|24|2469
+processo-667|668|32|10|6|7168
+processo-668|465|72|65|9|9216
+processo-669|456|64|27|3|7168
