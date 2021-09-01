@@ -9,7 +9,6 @@ algSelector = {
     'alternanciaCircular': Cyclic
 }
 
-
 # lê o arquivo com a lista de processos e retorna dict com lista de processos e informacoes
 def lerProcessos(path_arquivo):
     with open(path_arquivo, 'r') as texto:
@@ -44,11 +43,12 @@ def demo():
         prioridade['time'],
         algSelector[prioridade['alg']]
     )
-    # print("LOTERIA")
-    # LOT.run()
 
-    # print("ALTERNANCIA")
-    # ALT.run()
+    #print("LOTERIA")
+    #LOT.run()
+
+    #print("ALTERNANCIA")
+    #ALT.run()
 
     print("PRIORIDADE")
     PRI.run()
