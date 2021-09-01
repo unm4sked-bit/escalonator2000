@@ -8,7 +8,7 @@ class Priority:
         heapq.heapify(self.PROCESSES)
 
     def insert(self, process: Process):
-        heapq.heappush(self.PROCESSES, (100 - process.priority, process))
+        heapq.heappush(self.PROCESSES, (-process.priority, process))
     
     def next(self):
         return heapq.heappop(self.PROCESSES)[1]
